@@ -1,0 +1,47 @@
+
+steps to install scavislam Ubuntu 10.04
+
+1. install boost as external library for dependancy Pangolin:
+
+$ cd ScaViSLAM/EXTERNAL
+$ svn co http://svn.boost.org/svn/boost/trunk boost
+$ cd boost
+$ ./bootstrap.sh --prefix=~/svslocal (or wherever you put the install for scavislam external libraries)
+$ ./b2 install
+
+Hack the CMakeLists.txt to use new boost:
+comment out 
+#FIND_PACKAGE(Boost COMPONENTS thread filesystem system REQUIRED QUIET)
+and add
+SET(Boost_LIBRARY_DIRS /home/kir1pal/svslocal/lib)
+SET(Boost_INCLUDE_DIRS /home/kir1pal/svslocal/include)
+to EXTERNAL/Pangolin/pangolin/CMakeLists.txt
+
+disable build examples in 
+EXTERNAL/Pangolin/CMakeLists.txt
+
+Pangolin should now compile.
+
+2. Upgrade cmake to compile opencv with cuda support
+
+Download:
+http://www.cmake.org/cmake/resources/software.html
+
+Install instructions:
+http://www.cmake.org/cmake/help/install.html
+
+I used:
+$ cd to/cmake/directory
+$ ./bootstrap --prefix=/home/kir1pal/svslocal/
+$ make
+
+and then I used checkinstall:
+$ sudo checkinstall
+
+and finally I had to put a symbolic link in /usr/bin
+/usr/bin$ sudo ln -s /usr/local/bin/cmake cmake
+
+I realize this is not most the optimal way to install cmake, but it worked for me.
+
+opencv should now compile with CUDA support enabled.  
+This can be checked when you run cmake in the opencv build directory.  There will be some output that says "WITH_CUDA" macro is defined

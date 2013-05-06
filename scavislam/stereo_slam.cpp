@@ -16,7 +16,8 @@
 // along with ScaViSLAM.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef SCAVISLAM_CUDA_SUPPORT
-#include <cutil_inline.h>
+//#include <cutil_inline.h>
+#include <cuda_runtime_api.h>
 #endif
 
 #include <pangolin/pangolin.h>
@@ -661,7 +662,8 @@ int main(int argc, const char* argv[])
 
 #ifdef SCAVISLAM_CUDA_SUPPORT
   cudaDeviceProp prop;
-  CUDA_SAFE_CALL( cudaGetDeviceProperties(&prop, 0) );
+  //CUDA_SAFE_CALL( cudaGetDeviceProperties(&prop, 0) );
+   cudaGetDeviceProperties(&prop, 0) ;
   std::cout << "Multiprocessors: " << prop.multiProcessorCount << std::endl;
 #endif
 

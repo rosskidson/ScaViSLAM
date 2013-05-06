@@ -45,7 +45,7 @@ list<string> preprocessFiles(const boost::filesystem::path & directory)
     {
       if (is_directory( *iter)==false )
       {
-        boost::filesystem3::path  name = iter->path().filename();
+        boost::filesystem::path  name = iter->path().filename();
         name_list.push_back(name.string());
       }
     }
