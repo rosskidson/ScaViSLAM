@@ -52,6 +52,7 @@ using namespace VisionTools;
 struct ImageSet
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   ImageSet(){}
   ImageSet(const cv::Mat & img)
     : uint8(img),
@@ -94,6 +95,7 @@ template <class Camera>
 class FrameData
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   FrameData()
     :
     #ifdef SCAVISLAM_CUDA_SUPPORT
@@ -159,6 +161,7 @@ template<class Camera>
 class FrameGrabber
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   struct Params
   {
     Vector3d rot_left;
