@@ -58,6 +58,7 @@ template <typename Pose,   // frame/pose type such as SE3
 class SlamGraph
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
   // Typedefs and Enums
   //typedef typename ALIGNED<ImageFeature<ObsDim> >::int_hash_map FeatureTable;
@@ -149,6 +150,7 @@ public:
                                           optimization (false), or is a relative
                                           pose contraint used instead (true)? */
     public:
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
       bool is_marginalized() const
       {
@@ -203,7 +205,7 @@ public:
         //                                than the second index.
     {
     public:
-
+      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
       // ToDo: This is ugly!
       // Eliminate code doublicates by moving most of this code into Edge and
       // write a unique access method using iterators.

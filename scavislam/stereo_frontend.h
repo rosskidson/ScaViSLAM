@@ -85,6 +85,7 @@ struct StereoFrontendDrawData
 class StereoFrontend
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   StereoFrontend             (FrameData<StereoCamera> * frame_data_,
                               PerformanceMonitor * per_mon_);
   void

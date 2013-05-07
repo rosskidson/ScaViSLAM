@@ -96,6 +96,7 @@ private:
 class Backend
 {
 public:
+   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   Backend(const ALIGNED<StereoCamera>::vector & cam_vec_,
           PlaceRecognizerMonitor * place_reg_monitor);
 

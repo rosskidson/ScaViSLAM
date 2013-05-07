@@ -40,6 +40,7 @@ using namespace Sophus;
 class G2oCameraParameters : public g2o::Parameter
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   G2oCameraParameters();
 
   G2oCameraParameters        (const Vector2d & principle_point,
