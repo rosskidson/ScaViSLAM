@@ -1,26 +1,13 @@
 
 steps to install scavislam Ubuntu 10.04
 
-1. install boost as external library for dependancy Pangolin:
+1. edit pangolin cmakelists to make it compile with boost 1.4
 
-$ cd ScaViSLAM/EXTERNAL
-$ svn co http://svn.boost.org/svn/boost/trunk boost
-$ cd boost
-$ ./bootstrap.sh --prefix=~/svslocal (or wherever you put the install for scavislam external libraries)
-$ ./b2 install
+edit Pangolin/pangolin/CMakeLists.txt
 
-Hack the CMakeLists.txt to use new boost:
-comment out 
-#FIND_PACKAGE(Boost COMPONENTS thread filesystem system REQUIRED QUIET)
-and add
-SET(Boost_LIBRARY_DIRS /home/kir1pal/svslocal/lib)
-SET(Boost_INCLUDE_DIRS /home/kir1pal/svslocal/include)
-to EXTERNAL/Pangolin/pangolin/CMakeLists.txt
+comment out SET(HAVE_BOOST_GIL 1)
 
-disable build examples in 
-EXTERNAL/Pangolin/CMakeLists.txt
-
-Pangolin should now compile.
+Pangolin should compile now
 
 2. Upgrade cmake to compile opencv with cuda support
 
