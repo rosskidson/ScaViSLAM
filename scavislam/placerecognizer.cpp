@@ -22,6 +22,7 @@
 #include <visiontools/accessor_macros.h>
 #include <visiontools/stopwatch.h>
 
+#include <sstream>
 
 #include <opencv2/nonfree/nonfree.hpp>
 #include "ransac_models.h"
@@ -83,13 +84,24 @@ void PlaceRecognizerMonitor
   detected_loop_stack_.push(loop);
 }
 
+std::string get_env_var( std::string const & key ) {                                 
+  char * val;                                                                        
+  val = getenv( key.c_str() );                                                       
+  std::string retval = "";                                                           
+  if (val != NULL) {                                                                 
+    retval = val;                                                                    
+  }                                                                                  
+  return retval;                                                                        
+}
 
 PlaceRecognizer
 ::PlaceRecognizer(const StereoCamera & stereo_cam)
   : stereo_cam_(stereo_cam)
 {
+  std::stringstream filename;
+  filename << get_env_var("HOME") << "/ScaViSLAM/data/surfwords10000.png";
   cv::Mat words_float_as_four_uint8
-      = cv::imread(string("../data/surfwords10000.png"),-1);
+      = cv::imread(filename.str(),-1);
   assert(words_float_as_four_uint8.size().area()>0);
   assert(words_float_as_four_uint8.type()==CV_8U);
   assert(sizeof(float)==4);
