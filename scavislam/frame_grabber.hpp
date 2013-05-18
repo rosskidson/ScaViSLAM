@@ -189,9 +189,9 @@ public:
   FrameGrabber               (const Camera & cam,
                               const Vector4d & cam_distortion_,
                               PerformanceMonitor * per_mon_);
-  void
+        virtual void
   initialise                 ();
-  void
+  virtual void
   processNextFrame           ();
 
   const Params& params() const
@@ -201,7 +201,7 @@ public:
 
   FrameData<Camera> frame_data;
 
-private:
+protected:
   void
   loadParams                 ();
 
