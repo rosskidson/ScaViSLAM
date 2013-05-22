@@ -17,7 +17,7 @@ http://www.cmake.org/cmake/resources/software.html
 For reference, here are the install instructions:
 http://www.cmake.org/cmake/help/install.html
 
-Download tarball for Linux i386
+Under "Source distributions" Download the cmake tar.gz for Unix/Linux
 unzip into ScaViSLAM/EXTERNAL
 $ cd ScaViSLAM/EXTERNAL/cmake<version number>
 $ ./bootstrap --prefix=/home/kir1pal/svslocal/
