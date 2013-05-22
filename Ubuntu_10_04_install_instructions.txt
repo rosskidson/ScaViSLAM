@@ -14,11 +14,12 @@ Pangolin should compile now
 Download:
 http://www.cmake.org/cmake/resources/software.html
 
-Install instructions:
+For reference, here are the install instructions:
 http://www.cmake.org/cmake/help/install.html
 
-I used:
-$ cd to/cmake/directory
+Download tarball for Linux i386
+unzip into ScaViSLAM/EXTERNAL
+$ cd ScaViSLAM/EXTERNAL/cmake<version number>
 $ ./bootstrap --prefix=/home/kir1pal/svslocal/
 $ make
 
