@@ -76,8 +76,6 @@ initialise()
 #ifdef SCAVISLAM_PCL_SUPPORT
     grabber.initialize();
     boost::thread(boost::ref(grabber));
-#else
-    assert(false);
 #endif
   }
   else
@@ -277,8 +275,6 @@ frameFromLiveCamera()
                frame_data.cur_left().uint8,
                CV_BGR2GRAY);
   frame_data.have_disp_img = true;
-#else
-  assert(false);
 #endif
 }
 
